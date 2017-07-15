@@ -1,0 +1,147 @@
+/* You can add global styles to this file, and also import other style files */
+@charset "UTF-8";
+@import "https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300";
+@import "https://fonts.googleapis.com/css?family=Pacifico";
+html, body {
+  font-size: 62.5%;
+  height: 10%;
+  background: #fe8c00;
+  background: -webkit-linear-gradient(to left, #f83600, #fe8c00);
+  background: linear-gradient(to left, #f83600, #fe8c00);
+  margin: 0;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+  color: #353C3E;
+}
+
+* {
+  outline-color: #FFFFF7;
+}
+
+@keyframes glowing {
+  0% {
+    text-shadow: 0 0 10px #FFFFF7;
+  }
+  50% {
+    text-shadow: 0 0 10px #353C3E;
+  }
+  100% {
+    text-shadow: 0 0 10px #FFFFF7;
+  }
+}
+.align-center {
+  margin: auto;
+  text-align: center;
+}
+
+section {
+  width: 300px;
+  background-color: #F9F9F9;
+  font-size: 1.6rem;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+  position: relative;
+  margin-top: 10% !important;
+  border-radius: 0 0 0 75px;
+}
+section header {
+  width: 100%;
+  background-color: #203040;
+}
+section header h1 {
+  font-family: Pacifico;
+  text-indent: 20px;
+  text-align: left;
+  line-height: 50px;
+  color: #FFFFF7;
+  font-weight: 400;
+  transition: 200ms;
+  animation: glowing 3s infinite;
+}
+section header h1::after {
+  content: " ";
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 3px;
+  background: #FD8F04;
+}
+section main {
+  padding: 0 20px;
+}
+section main .input {
+  font-size: 1.8rem;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #353C3E;
+  margin: 0 0 40px;
+  background: 0;
+  outline: 0;
+  color: #353C3E;
+  transition: 200ms;
+}
+section main .input:first-child {
+  margin: 10px 0 40px;
+}
+section main .input:focus {
+  font-size: 2rem;
+  border-bottom: 2px solid #353C3E;
+}
+section .submit {
+  font-family: "Pacifico";
+  width: 100%;
+  background: #203040;
+  border: 0;
+  line-height: 50px;
+  color: #FFFFF7;
+  font-size: 2.3rem;
+  transition: 200ms;
+  position: relative;
+}
+section .submit:hover {
+  font-size: 1.8rem;
+  text-shadow: 0 0 10px #FFFFF7;
+}
+section .submit:active {
+  top: 2px;
+}
+section footer {
+  margin-top: 20px;
+}
+section footer i {
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 300;
+  font-weight: normal;
+  text-decoration: none;
+  color: #353C3E;
+}
+section footer i a {
+  color: #353C3E;
+  text-decoration: none;
+}
+section footer i a:hover {
+  text-decoration: underline;
+}
+section .arrow {
+  content: " ➥ ";
+  display: block;
+  position: relative;
+  right: -100%;
+  margin-left: -37.5px;
+  margin-top: -30px;
+  width: 75px;
+  height: 75px;
+  border-radius: 100%;
+  background: #FD8F04;
+  bottom: -37.6px;
+  line-height: 70px;
+  font-size: 6rem;
+  color: #FFFFF7;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+  transition: 200ms;
+  transform: scale(0.8);
+  cursor: pointer;
+}
+section .arrow:hover {
+  transform: scale(1) rotate(-30deg);
+}

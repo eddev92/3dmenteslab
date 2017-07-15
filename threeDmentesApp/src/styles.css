@@ -4,7 +4,9 @@
 @import "https://fonts.googleapis.com/css?family=Pacifico";
 html, body {
   font-size: 62.5%;
-  height: 10%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: hidden;
   background: #fe8c00;
   background: -webkit-linear-gradient(to left, #f83600, #fe8c00);
   background: linear-gradient(to left, #f83600, #fe8c00);
@@ -117,11 +119,8 @@ section footer i {
 }
 section footer i a {
   color: #353C3E;
-  text-decoration: none;
 }
-section footer i a:hover {
-  text-decoration: underline;
-}
+
 section .arrow {
   content: " ➥ ";
   display: block;
@@ -144,4 +143,8 @@ section .arrow {
 }
 section .arrow:hover {
   transform: scale(1) rotate(-30deg);
+}
+a:focus, a:hover {
+    color: #000000;
+    text-decoration: none !important;
 }

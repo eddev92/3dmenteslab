@@ -1,22 +1,27 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <section class="align-center">
-<header>
-    <h1> 3D Mentes Lab ➷</h1>
-</header>
-   
-    <form name="myForm" id="registerForm">
-    <input class="input col-10" type="text" placeholder="Username" required/>
-       <input class="input col-10" type="text" placeholder="Username" required/>
-          <input class="input col-10" type="text" placeholder="Username" required/>
-             <input class="input col-10" type="text" placeholder="Username" required/>
-    <input class="input col-10" type="password" placeholder="Password" required/>
-    <button type="submit" class="btn col-6 btn-success">Registrate</button>
-    </form>
-    
-    <footer>
-        <i>Entérate lo nuevo,<a> siguenos...</a></i>
-    </footer>
-        <div class="arrow">➥</div>
-</section>
+<div class="container-fluid">
+    <section id="mainForm" class="align-center">
+  <header>
+      <h1> 3D Mentes Lab ➷</h1>
+  </header>
+     
+      <form #signupForm="ngForm" (ngSubmit)="registerStudent(signupForm)" id="registerForm">
+      <input class="input col-10" name="name" type="text" placeholder="Nombres" ngModel/>
+         <input class="input col-10" name="apellidos" type="text" placeholder="Apellidos" ngModel/>
+            <input class="input col-10" name="email" type="email" placeholder="Email" ngModel/>
+               <input class="input col-10" name="phone" type="tel" placeholder="Teléfono" ngModel/>
+      <button type="submit" class="btn col-6 btn-success">Registrate</button>
+      </form>
+      
+      <footer>
+          <i>Entérate lo nuevo,<a> siguenos...</a></i>
+      </footer>
+          <a href="https://www.facebook.com/3dmenteslab/?ref=aymt_homepage_panel" target="_blank" class="arrow">➥</a>
+  </section>
+
+  <div class="col-5" id="nave" style="background-image: url('/assets/img/background.jpg')">
+  </div>
+  
+
+
+
 </div>

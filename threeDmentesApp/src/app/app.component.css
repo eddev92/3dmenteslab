@@ -1,5 +1,24 @@
 #registerForm button{
     height: 40px;
     margin: 30px 30px 0;
+    font-size: 1em;
 
+}
+#registerForm input{
+    margin: 10px;
+}
+section#mainForm{
+  float: left;
+  margin: 50px;
+  bottom: 0;
+}
+#nave{
+    background-size: initial;
+    height: 761px;
+    max-width: 433px;
+    background-repeat: no-repeat;
+    background-position-y: -176px;
+    margin-top: 0px;
+    float: right;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 1);
 }

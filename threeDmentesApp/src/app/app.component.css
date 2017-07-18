@@ -12,6 +12,15 @@ section#mainForm{
   margin: 50px;
   bottom: 0;
 }
+@media (max-width: 860px){
+    #nave{
+        display: none;
+    }
+    section#mainForm{
+        float: none;
+        margin: auto;
+    }
+}
 #nave{
     background-size: initial;
     height: 761px;
@@ -22,3 +31,4 @@ section#mainForm{
     float: right;
     box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 1);
 }
+/* media query */

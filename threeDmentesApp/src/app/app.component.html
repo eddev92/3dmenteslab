@@ -3,15 +3,23 @@
   <header>
       <h1> 3D Mentes Lab ➷</h1>
   </header>
+
+
+<!--   <input type="text" id="message" *ngIf="user" placeholder="What is it that you do?" (keyup.enter)="Send($event.target.value)" [(ngModel)]="msgVal" /> -->
+<!--   <div id="details-container">
+      <p *ngFor="let item of items | async">{{item.message}}</p>
+  </div> -->
+
      
-      <form #signupForm="ngForm" (ngSubmit)="registerStudent(signupForm)" id="registerForm">
-      <input class="input col-10" name="name" type="text" placeholder="Nombres" ngModel/>
-         <input class="input col-10" name="apellidos" type="text" placeholder="Apellidos" ngModel/>
-            <input class="input col-10" name="email" type="email" placeholder="Email" ngModel/>
-               <input class="input col-10" name="phone" type="tel" placeholder="Teléfono" ngModel/>
-      <button type="submit" class="btn col-6 btn-success">Registrate</button>
-      </form>
-      
+       <form #userForm = "ngForm" 
+            (ngSubmit)="Send(userForm.value)" id="registerForm">
+      <input class="input col-10" name="name" type="text" placeholder="Nombres" [(ngModel)]="nombre" />
+         <input class="input col-10" name="apellidos" type="text" placeholder="Apellidos" [(ngModel)]="apellido" />
+            <input class="input col-10" name="email" type="email" placeholder="Email" [(ngModel)]="email" />
+               <input class="input col-10" name="phone" type="tel" placeholder="Teléfono" [(ngModel)]="telefono" />
+      <button type="submit" value="submit" class="btn col-6 btn-success">Registrate</button>
+      </form> 
+
       <footer>
           <i>Entérate lo nuevo,<a> siguenos...</a></i>
       </footer>

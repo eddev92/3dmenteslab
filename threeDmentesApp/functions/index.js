@@ -1,46 +1,38 @@
-var functions = require('firebase-functions');
-const sendgrid = require('sendgrid')
-const client = sendgrid("AIzaSyA3valHdAH00FqEG5BjqrQid6qfp2jlcOA")
+  var config = {
+    apiKey: "AIzaSyA3valHdAH00FqEG5BjqrQid6qfp2jlcOA",
+    authDomain: "dmenteslab.firebaseapp.com",
+    databaseURL: "https://dmenteslab.firebaseio.com",
+    projectId: "dmenteslab",
+    storageBucket: "dmenteslab.appspot.com",
+    messagingSenderId: "823755930391"
+  };
+const functions = require('firebase-functions');
+const admin = require('firebase-admin');
+admin.initializeApp(functions.config().firebase)
+const nodemailer = require('nodemailer');
+const gmailEmail = encodeURIComponent(functions.config().gmail.email);
+const gmailPassword = encodeURIComponent(functions.config().gmail.password);
+const mailTransport = nodemailer.createTransport(`smtps://${gmailEmail}:${gmailPassword}@smtp.gmail.com`);
 
-function parseBody(body) {
-  var helper = sendgrid.mail;
-  var fromEmail = new helper.Email(body.from);
-  var toEmail = new helper.Email(body.to);
-  var subject = body.subject;
-  var content = new helper.Content('text/html', body.content);
-  var mail = new helper.Mail(fromEmail, subject, toEmail, content);
-  return  mail.toJSON();
-}
+exports.sendContactMessage = functions.database.ref('/dmenteslab/alumnos/{pushKey}')
+  .onWrite(event => {
+  const snapshot = event.data;
+// Only send email for new messages.
+  if (snapshot.previous.val() || !snapshot.val().name) {
+    return;
+  }
+  
+  let val = snapshot.val();
+  
+  let mailOptions = {
+    to: 'llanca872@gmail.com',
+    subject: `Information Request from ${val.name}`,
+    html: val.html
+  };
 
-exports.httpEmail = functions.https.onRequest((req, res) => {
-  return Promise.resolve()
-    .then(() => {
-      if (req.method !== 'POST') {
-        const error = new Error('Only POST requests are accepted');
-        error.code = 405;
-        throw error;
-      }
+ return mailTransport.sendMail(mailOptions, (error, info) => {
+    if ( error) return console.log(error);
+     console.log('Mail sent to: edwarllanca@hotmail.com');
+  })
 
-      const request = client.emptyRequest({
-        method: 'POST',
-        path: '/v3/mail/send',
-        body: parseBody(req.body)
-      });
-
-      return client.API(request)
-
-    })
-    .then((response) => {
-      if (response.body) {
-        res.send(response.body);
-      } else {
-        res.end();
-      }
-    })
-
-    .catch((err) => {
-      console.error(err);
-      return Promise.reject(err);
-    });
-
-})
+});

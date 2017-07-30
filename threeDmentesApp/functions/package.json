@@ -1,9 +1,18 @@
 {
   "name": "functions",
-  "description": "Cloud Functions for Firebase",
+  "description": "Sistema de registro de alumnos",
+   "main": "index.js",
+   "scripts": {
+    "start":"node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "dependencies": {
+    "bluebird": "^3.5.0",
+    "email-templates": "^2.6.0",
     "firebase-admin": "~4.2.1",
     "firebase-functions": "^0.5.7",
+    "handlebars": "^4.0.10",
+    "nodemailer": "^4.0.1",
     "sendgrid": "^5.2.0"
   },
   "private": true
